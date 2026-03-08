@@ -1,0 +1,173 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v1.7.90/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "@env('FABRIC_CONNECTION_STRING')",
+    "options": {
+      "set-session-context": false
+    }
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "mcp": {
+      "enabled": true,
+      "path": "/mcp"
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "AppService"
+      },
+      "mode": "development"
+    }
+  },
+  "entities": {
+    "gold_dim_fan": {
+      "source": {
+        "object": "gold_dim_fan",
+        "type": "table"
+      },
+      "fields": [
+        {
+          "name": "fan_id",
+          "primary-key": true
+        }
+      ],
+      "graphql": {
+        "enabled": true,
+        "type": {
+          "singular": "gold_dim_fan",
+          "plural": "gold_dim_fans"
+        }
+      },
+      "rest": {
+        "enabled": true
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            {
+              "action": "read"
+            }
+          ]
+        }
+      ]
+    },
+    "gold_fan_segments": {
+      "source": {
+        "object": "gold_fan_segments",
+        "type": "table"
+      },
+      "fields": [
+        {
+          "name": "fan_id",
+          "primary-key": true
+        }
+      ],
+      "graphql": {
+        "enabled": true,
+        "type": {
+          "singular": "gold_fan_segments",
+          "plural": "gold_fan_segments"
+        }
+      },
+      "rest": {
+        "enabled": true
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            {
+              "action": "read"
+            }
+          ]
+        }
+      ]
+    },
+    "gold_churn_score": {
+      "source": {
+        "object": "gold_churn_score",
+        "type": "table"
+      },
+      "fields": [
+        {
+          "name": "fan_id",
+          "primary-key": true
+        }
+      ],
+      "graphql": {
+        "enabled": true,
+        "type": {
+          "singular": "gold_churn_score",
+          "plural": "gold_churn_scores"
+        }
+      },
+      "rest": {
+        "enabled": true
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            {
+              "action": "read"
+            }
+          ]
+        }
+      ]
+    },
+    "gold_fact_engagement": {
+      "source": {
+        "object": "gold_fact_engagement",
+        "type": "table"
+      },
+      "fields": [
+        {
+          "name": "fan_id",
+          "primary-key": true
+        },
+        {
+          "name": "event_timestamp",
+          "primary-key": true
+        }
+      ],
+      "graphql": {
+        "enabled": true,
+        "type": {
+          "singular": "gold_fact_engagement",
+          "plural": "gold_fact_engagements"
+        }
+      },
+      "rest": {
+        "enabled": true
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            {
+              "action": "read"
+            },
+            {
+              "action": "create"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
