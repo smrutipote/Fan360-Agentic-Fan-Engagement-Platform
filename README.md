@@ -1,4 +1,4 @@
-# 🏉 Fan360 — Intelligent Fan Engagement Platform
+# 🏉 Fan360 — Agentic Fan Engagement Platform
 
 > **Real-time, AI-powered fan engagement system built on Microsoft Fabric, Azure AI Foundry, AutoGen A2A, and Semantic Kernel.**
 
